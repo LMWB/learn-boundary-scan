@@ -1,2 +1,2 @@
 # learn-boundary-scan
-JTAG and Boundary Scan Basics with low price hardware 
+JTAG and Boundary Scan Basics with low price Hardware 
