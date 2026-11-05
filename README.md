@@ -5,7 +5,8 @@ JTAG and Boundary Scan Basics with low price Hardware
 ![max1000](./docs/images/MAX1000-pinout.png)  
 ![max1000-LED](./docs/images/MAX1000-LED-Bank.png)  
 ![nucleof446re](./docs/images/nucleo-f446re-pinout.svg)  
-![max1000-LED](./docs/images/ft2232h-dev-board.jpg)  
+![ft2232-board](./docs/images/ft2232h-dev-board.jpg)  
+[on ebay](https://www.ebay.de/itm/265993756736?_skw=ft2232&itmmeta=01M6PQ0XWMB1DCS2C043ZNTX8C&hash=item3dee76a040:g:ddoAAOSwdHRjdZys&itmprp=enc%3AAQALAAAA8CHNgUiiE%2FjQhlDTaMiAde8UnivYtuuf1oo0AGURx0LGN%2BPUHMYM9LpCCYqT6sVC05qNus3w0SfR1J8Er3rfPLJST7wkwdx6DOlTNgtWLjMvifUuh0On9n5vwOR23Zt8S6CO0odvclKxGXhHJHVkZoldgRPFiufyJ2ofRDoujkWGcWqq6xkG1juugf0%2FNQJV0Iur%2BqGlS0hpLTzJIhLRS0I3sA9SLwMuzMCWJ5hKvit0hYqj%2BIHlDJyXTNiVfRq4RGt3ByYGAxM8cHjvVQ1IV9iG48PRqaTp3DxWS1lc52nH%2BsR%2F2GMNtrwdQJjcl51qvw%3D%3D%7Ctkp%3ABk9SR6bfg9e1aA)  
 
 Some bread board wires. Pullups would be nice but it works without them too.  
 
@@ -81,7 +82,7 @@ set signal PA5 out 0
 shift dr               # LED turns off
 ```
 
-### Select a part and read its IDCODE directly  
+## Select a part and read its IDCODE directly  
 ```
 part 0
 instruction IDCODE
@@ -90,7 +91,7 @@ shift dr
 dr
 ```
 
-### scripting  
+## scripting  
 
 ```
 cable ft2232 vid=0x0403 pid=0x6010 interface=1
