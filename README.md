@@ -115,3 +115,10 @@ Then run it with jtag led.jtag, or from inside UrJTAG with script led.jtag.
 include led.urjtag. 
 
 Put a usleep between steps if you want the LED to stay on visibly before the release.
+
+## sources
+[MAX1000 IoT Dev Board](https://www.trenz-electronic.de/de/MAX1000-IoT-Maker-Board-8kLE-8-MByte-SDRAM-8-MByte-Flash-6-15-x-2-5-cm/TEI0001-04-DBC87A)  
+[pyjtagbs](https://github.com/colinoflynn/pyjtagbs)  
+[UrJTAG](https://urjtag.sourceforge.io/)  
+[openOCD](https://openocd.org/)  
+[openOCD github](https://github.com/openocd-org/openocd)  
