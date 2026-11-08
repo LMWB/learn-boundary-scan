@@ -1,0 +1,26 @@
+# setup.jtag must be executed first
+
+part 2
+instruction SAMPLE/PRELOAD
+shift ir
+shift dr
+set signal PA5 out 1
+instruction EXTEST
+shift ir
+shift dr
+
+usleep 500000
+set signal PA5 out 0
+shift dr
+
+usleep 500000
+set signal PA5 out 1
+shift dr
+
+usleep 500000
+set signal PA5 out 0
+shift dr
+
+#instruction BYPASS
+#shift ir
+#reset

@@ -94,7 +94,7 @@ dr
 ## scripting  
 
 ```
-cable ft2232 vid=0x0403 pid=0x6010 interface=1
+cable ft2232 vid=0x0403 pid=0x6010 interface=0
 bsdl path /path/to/bsdl_folder
 detect
 part 0
@@ -110,4 +110,8 @@ shift ir
 reset
 ```
 
-Then run it with jtag led.jtag, or from inside UrJTAG with script led.jtag. Put a sleep between steps if you want the LED to stay on visibly before the release.
+Then run it with jtag led.jtag, or from inside UrJTAG with script led.jtag. 
+
+include led.urjtag. 
+
+Put a usleep between steps if you want the LED to stay on visibly before the release.

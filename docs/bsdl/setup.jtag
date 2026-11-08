@@ -1,0 +1,5 @@
+cable ft2232 vid=0x0403 pid=0x6010 interface=0
+frequency                                           # print current set frequency
+bsdl path ./                                        # set path to bsdl files
+detect                                              # read chain
+print chain                                         # with known bsdl, here is some cool stuff to observe
