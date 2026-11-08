@@ -1,5 +1,9 @@
 cable ft2232 vid=0x0403 pid=0x6010 interface=0
+
 frequency                                           # print current set frequency
+frequency 1000000                                   # set frequency to 1MHz
+frequency
+
 bsdl path ../bsdl                                   # set path to bsdl files
 detect                                              # read chain
 print chain                                         # with known bsdl, here is some cool stuff to observe
