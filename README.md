@@ -98,6 +98,28 @@ dr
 
 ### scripting  
 
+Run a setup with ```jtag setup.jtag```  
+
+```tcl
+lmwb@macbookpro12:~/work/git/LMWB/learn-boundary-scan/UrJTAG$ jtag setup.jtag 
+Connected to libftdi driver.
+Current TCK frequency is 6000000 Hz
+IR length: 19
+Chain length: 3
+Device Id: 00000011000110000010000011011101 (0x031820DD)
+  Filename:     ../bsdl/10M08SAU169.bsd
+Device Id: 01001011101000000000010001110111 (0x4BA00477)
+  Filename:     ../bsdl/CortexMx.bsd
+Device Id: 00000110010000100001000001000001 (0x06421041)
+  Filename:     ../bsdl/STM32F446_LQFP64.bsd
+ No. Manufacturer              Part                 Stepping Instruction          Register                        
+-------------------------------------------------------------------------------------------------------------------
+   0                                                         BYPASS               BYPASS                          
+   1                                                         BYPASS               BYPASS                          
+*  2                                                         BYPASS               BYPASS     
+```
+
+
 Put these lines into a textfile called led.jtag.  
 
 ```
