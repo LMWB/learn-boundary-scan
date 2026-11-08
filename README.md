@@ -15,9 +15,22 @@ Some bread board wires. Pullups would be nice but it works without them too.
 ![jtag-chain](./docs/images/jtag-chain.png)  
 [XJTAG](https://www.youtube.com/watch?v=PgUmq32-HO4)  
 
+## cableing the FT2232H board  
+JTAG pin mapping (channel A, MPSSE default)
+
+| JTAG signal | FT2232H pin |
+| --- | --- |
+| TCK	| ADBUS0 |
+| TDI	| ADBUS1 |
+| TDO	| ADBUS2 |
+| TMS	| ADBUS3 |
+| GND	| any GND pin |
+
+
 ## Software  
-UrJTAG CLI based Software
-[UrJTAG](https://urjtag.sourceforge.io/)  
+
+UrJTAG CLI based Software  
+openOCD CLI based Software  
 
 ```
 sudo apt install openwince-jtag  
@@ -25,6 +38,7 @@ sudo apt install urjtag
 sudo apt install openocd  
 ```
 
+## UrJTAG
 ```
 lmwb@macbookpro12:~/work/git/LMWB$ jtag -v
 
@@ -48,24 +62,13 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ```
 
-## cableing the FT2232H board  
-JTAG pin mapping (channel A, MPSSE default)
-
-| JTAG signal | FT2232H pin |
-| --- | --- |
-| TCK	| ADBUS0 |
-| TDI	| ADBUS1 |
-| TDO	| ADBUS2 |
-| TMS	| ADBUS3 |
-| GND	| any GND pin |
-
-## first test  
+### first test  
 ```
 cable ft2232 vid=0x0403 pid=0x6010 interface=1
 detect
 ```
 
-## minimal workflow  
+### minimal workflow  
 ```
 cable ft2232 vid=0x0403 pid=0x6010 #cable <your adapter>   # depends on FTDI pinout, e.g. jtagkey
 
@@ -83,7 +86,7 @@ set signal PA5 out 0
 shift dr               # LED turns off
 ```
 
-## Select a part and read its IDCODE directly  
+### Select a part and read it's IDCODE directly  
 ```
 part 0
 instruction IDCODE
@@ -92,7 +95,7 @@ shift dr
 dr
 ```
 
-## scripting  
+### scripting  
 
 ```
 cable ft2232 vid=0x0403 pid=0x6010 interface=0
@@ -116,6 +119,10 @@ Then run it with jtag led.jtag, or from inside UrJTAG with script led.jtag.
 include led.urjtag. 
 
 Put a usleep between steps if you want the LED to stay on visibly before the release.
+
+## openOCD  
+[openOCD test](./docs/openOCD/openocd_chain_config.md)  
+
 
 ## sources
 [MAX1000 IoT Dev Board](https://www.trenz-electronic.de/de/MAX1000-IoT-Maker-Board-8kLE-8-MByte-SDRAM-8-MByte-Flash-6-15-x-2-5-cm/TEI0001-04-DBC87A)  
