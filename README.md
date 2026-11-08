@@ -11,6 +11,7 @@ JTAG and Boundary Scan Basics with low price Hardware
 Some bread board wires. Pullups would be nice but it works without them too.  
 
 ## Setup  
+![test-chain](./docs/images/JTAG-Chain-Test-Setup.png)  
 ![jtag-chain](./docs/images/jtag-chain.png)  
 [XJTAG](https://www.youtube.com/watch?v=PgUmq32-HO4)  
 
