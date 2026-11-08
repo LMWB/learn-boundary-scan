@@ -64,8 +64,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 ### first test  
 ```
-cable ft2232 vid=0x0403 pid=0x6010 interface=1
+cable ft2232 vid=0x0403 pid=0x6010 interface=0
 detect
+print chain
 ```
 
 ### minimal workflow  
@@ -97,6 +98,8 @@ dr
 
 ### scripting  
 
+Put these lines into a textfile called led.jtag.  
+
 ```
 cable ft2232 vid=0x0403 pid=0x6010 interface=0
 bsdl path /path/to/bsdl_folder
@@ -116,12 +119,52 @@ reset
 
 Then run it with jtag led.jtag, or from inside UrJTAG with script led.jtag. 
 
-include led.urjtag. 
+Include led.urjtag. 
 
 Put a usleep between steps if you want the LED to stay on visibly before the release.
 
 ## openOCD  
-[openOCD test](./docs/openOCD/openocd_chain_config.md)  
+[openOCD test](./openOCD/openocd_chain_config.md)  
+
+Flashing a 250 kBytes file with 1MHz and three members in the chain takes aprox 6 sec.  
+
+```tcl
+lmwb@macbookpro12:~/work/git/LMWB/learn-boundary-scan$ /bin/python3 /home/lmwb/work/git/LMWB/learn-boundary-scan/python/flash_bin_openOCD.py
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+none separate
+
+Info : clock speed 1000 kHz
+Info : JTAG tap: max10.tap tap/device found: 0x031820dd (mfg: 0x06e (Altera), part: 0x3182, ver: 0x0)
+Info : JTAG tap: stm32f4x.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd), part: 0xba00, ver: 0x4)
+Info : JTAG tap: stm32f4x.bs tap/device found: 0x06421041 (mfg: 0x020 (STMicroelectronics), part: 0x6421, ver: 0x0)
+Info : [stm32f4x.cpu] Cortex-M4 r0p1 processor detected
+Info : [stm32f4x.cpu] target has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32f4x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+Info : JTAG tap: max10.tap tap/device found: 0x031820dd (mfg: 0x06e (Altera), part: 0x3182, ver: 0x0)
+Info : JTAG tap: stm32f4x.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd), part: 0xba00, ver: 0x4)
+Info : JTAG tap: stm32f4x.bs tap/device found: 0x06421041 (mfg: 0x020 (STMicroelectronics), part: 0x6421, ver: 0x0)
+[stm32f4x.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08000914 msp: 0x20020000
+** Programming Started **
+Info : device id = 0x10006421
+Info : flash size = 512 KiB
+** Programming Finished **
+** Verify Started **
+** Verified OK **
+** Resetting Target **
+Info : JTAG tap: max10.tap tap/device found: 0x031820dd (mfg: 0x06e (Altera), part: 0x3182, ver: 0x0)
+Info : JTAG tap: stm32f4x.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd), part: 0xba00, ver: 0x4)
+Info : JTAG tap: stm32f4x.bs tap/device found: 0x06421041 (mfg: 0x020 (STMicroelectronics), part: 0x6421, ver: 0x0)
+shutdown command invoked
+binary size:  265368 bytes (259.1 KiB)
+time elapsed: 6.753 s
+throughput:   38.4 KiB/s
+```
+
 
 
 ## sources
