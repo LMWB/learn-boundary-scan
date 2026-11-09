@@ -195,3 +195,4 @@ throughput:   38.4 KiB/s
 [UrJTAG](https://urjtag.sourceforge.io/)  
 [openOCD](https://openocd.org/)  
 [openOCD github](https://github.com/openocd-org/openocd)  
+[python virtual environment](https://www.w3schools.com/python/python_virtualenv.asp)  
