@@ -1,6 +1,6 @@
 # setup.jtag must be executed first
 
-part 2
+part 1                      # depending on chain set up part 1 or part 2
 instruction SAMPLE/PRELOAD
 shift ir
 shift dr
@@ -21,6 +21,6 @@ usleep 500000
 set signal PA5 out 0
 shift dr
 
-#instruction BYPASS
-#shift ir
-#reset
+instruction BYPASS
+shift ir
+reset

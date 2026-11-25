@@ -1,10 +1,10 @@
 from pyftdi.gpio import GpioAsyncController
 
 # ASSUMED wiring: BDBUS0 = SER, BDBUS1 = SRCLK, BDBUS2 = RCLK. Change to match your board.
-SER, SRCLK, RCLK = 0x01, 0x02, 0x04
+SER, SRCLK, RCLK = 0x01, 0x32, 0x04
 
 gpio = GpioAsyncController()
-gpio.configure('ftdi://ftdi:2232h/2', direction=SER | SRCLK | RCLK)  # /2 = channel B
+gpio.configure('ftdi://ftdi:2232h/1', direction=SER | SRCLK | RCLK)  # /2 = channel B
 
 def send(byte):
     for i in range(7, -1, -1):             # MSB first
