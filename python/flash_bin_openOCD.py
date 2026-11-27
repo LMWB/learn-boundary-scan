@@ -2,8 +2,9 @@ import os
 import time
 
 here = os.path.dirname(os.path.abspath(__file__))
-#cfg = os.path.join(here, "..", "openOCD", "chain.cfg")
-cfg = os.path.join(here, "..", "openOCD", "chain_usb_blaster.cfg")
+
+cfg = os.path.join(here, "..", "openOCD", "chain.cfg")
+#cfg = os.path.join(here, "..", "openOCD", "chain_usb_blaster.cfg")
 
 #binfile = os.path.join(here, "..", "binaries", "Nucleo-F446RE-blinky_slow.bin")
 binfile = os.path.join(here, "..", "binaries", "Nucleo-F446RE-blinky_fast.bin")

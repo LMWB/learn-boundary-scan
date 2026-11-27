@@ -1,7 +1,18 @@
+'''
+Pinout für I2C (FT232H, Port AD):
+
+Signal	    Pin am Board	FT232H
+SCL	        AD0	            ADBUS0
+SDA (out)	AD1	            ADBUS1
+SDA (in)	AD2	            ADBUS2
+GND	        GND             –
+'''
+
+
 from pyftdi.i2c import I2cController
 
 i2c = I2cController()
-i2c.configure('ftdi://ftdi:232h/1')   # Standard-URL für den FT232H
+i2c.configure('ftdi://ftdi:232h/1', frequency=100000)   # Standard-URL für den FT232H
 
 print("Scanne I2C-Bus...")
 devices = []
